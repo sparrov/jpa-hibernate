@@ -2,7 +2,7 @@ package org.example.Exercise6;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Post {
 
     @Id

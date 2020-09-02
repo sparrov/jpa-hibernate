@@ -1,9 +1,9 @@
-package org.example.Exercise6;
+package org.example.Exercise6_SimpleBoard;
 
 import javax.persistence.*;
 import java.util.List;
 
-//@Entity
+@Entity
 public class User {
 
     @Id
@@ -33,4 +33,18 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    public void createDefaultUsers() {
+        User user1 = new User("test", "test");
+        User user2 = new User("admin", "admin");
+        User user3 = new User("root", "root");
+
+        EntityManager entityManager = SimpleBoard.getEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(user1);
+        entityManager.persist(user2);
+        entityManager.persist(user3);
+        entityManager.getTransaction().commit();
+    }
 }
+
